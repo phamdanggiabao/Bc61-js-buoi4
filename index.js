@@ -84,14 +84,22 @@ document.getElementById('btnKetQua1').onclick =function (){
     //cấu trúc điều kiên
 
     var ketQua= 0;
-    if (gioLam <=40){
-        //người này ko hề tăng ca
-        ketQua = gioLam * tienLuong;
+    // if (gioLam <=40){
+    //     //người này ko hề tăng ca
+    //     ketQua = gioLam * tienLuong;
     
-    }else{
-        //người này có tăng ca
-        ketQua = 40 * tienLuong + (gioLam -40 )* tienLuong * 1.5;
+    // }else{
+    //     //người này có tăng ca
+    //     ketQua = 40 * tienLuong + (gioLam -40 )* tienLuong * 1.5;
+    // }
+    if (gioLam <= 40){
+        ketQua = gioLam * tienLuong 
+    }else {
+        var gioTangCa = gioLam - 40 ;
+        var tienTangCa = gioTangCa * (tienLuong * 1.5);
+        var ketQua = ( tienLuong * 40 )+ tienTangCa;
     }
+
     console.log(ketQua);
     var formatLuong = ketQua.toLocaleString ({
         style: 'currency',
